@@ -1,6 +1,7 @@
 * {
   margin: 0%;
   padding: 0%;
+  scroll-behavior: smooth;
 }
 
 header {
@@ -74,6 +75,7 @@ input {
   width: 25%;
   padding: 2vh;
   margin: 10vh auto;
+  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 form {
@@ -88,6 +90,16 @@ label {
 
 #submit-btn {
   padding: 1vh;
+}
+
+span {
+  color: red;
+  margin-top: 4px;
+}
+
+.submitted {
+  color: white;
+  background-color: green;
 }
 
 /* #all-books-container {

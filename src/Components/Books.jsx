@@ -4,7 +4,9 @@ function Books() {
 
     const [data, setData] = useState()
     // const [searchedBook, setSearchedBook] = useState()
-    // const [filteredBooks, setFilteredBooks] = useState()
+    const [filteredBooks, setFilteredBooks] = useState()
+
+
 
     useEffect(() => {
         fetch("https://reactnd-books-api.udacity.com/books", { headers: { 'Authorization': 'whatever-you-want' } })
@@ -15,6 +17,7 @@ function Books() {
 
             .then(result => {
                 setData(result.books)
+                setFilteredBooks(result.books)
             })
 
             .catch(error => {
@@ -24,13 +27,24 @@ function Books() {
     }, [])
     console.log(data)
 
+    const handleSearch = (e) => {
+        const inputValue = e.target.value;
+        // if (inputValue === "") {
+        const filteredData = data.filter((i) => {
+            return i.title.toLowerCase().includes(inputValue.toLowerCase())
+        })
+        setFilteredBooks(filteredData)
+        console.log(e.target.value)
+    };
+
     const handleClick = (previewLink) => {
         window.open(previewLink, "_blank");
     };
 
+
     return (
         <div id='all-books-container' >
-            {data?.map((element, index) =>
+            {filteredBooks?.map((element, index) =>
             (
                 <div className='book-container' onClick={() => handleClick(element.previewLink)} key={index}>
                     <img className='book-image' src={element.imageLinks.smallThumbnail} alt="" />
