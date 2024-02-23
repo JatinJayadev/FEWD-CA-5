@@ -8,13 +8,15 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 6vh 8vh;
+  padding: 4vh 8vh;
   border: 1px solid black;
 }
 
 input {
-  border: none;
   outline: none;
+  border: 1px solid black;
+  padding: 1vh;
+
 }
 
 #search-div {
@@ -22,8 +24,6 @@ input {
 }
 
 #search-box {
-  border: 1px solid black;
-  padding: 1vh;
   width: 100%;
 }
 
@@ -67,6 +67,27 @@ input {
 
 .authors {
   color: rgb(101, 100, 100);
+}
+
+.form-container {
+  border: 1px solid black;
+  width: 25%;
+  padding: 2vh;
+  margin: 10vh auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form>input,
+label {
+  margin-top: 2vh;
+}
+
+#submit-btn {
+  padding: 1vh;
 }
 
 /* #all-books-container {
