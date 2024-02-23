@@ -1,34 +1,76 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [data, setData] = useState()
+  // const [searchedBook, setSearchedBook] = useState()
+  // const [filteredBooks, setFilteredBooks] = useState()
+
+  useEffect(() => {
+    fetch("https://reactnd-books-api.udacity.com/books", { headers: { 'Authorization': 'whatever-you-want' } })
+
+      .then(response => {
+        return response.json();
+      })
+
+      .then(result => {
+        setData(result.books)
+      })
+
+      .catch(error => {
+        console.log(error)
+      })
+
+  }, [])
+  console.log(data)
+
+  const handleClick = (previewLink) => {
+    window.open(previewLink, "_blank");
+  };
+
+  // const handleSearch = (e) => {
+  //   if (e.target.value == "") {
+  //     return data
+  //   }
+  //   let inputValue = e.target.value.toLowerCase()
+
+  //   const filteredBooks = data.filter((book) => {
+  //     return book.title.toLowerCase().includes(inputValue)
+  //   })
+
+  //   setFilteredBooks(filteredBooks)
+  //   console.log(inputValue)
+  // }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <header>
+        <div>
+          <h1>Kalvium Books </h1>
+        </div>
+        <div id='search-div' >
+          <input id='search-box' type="text" placeholder='Search Books' />
+        </div>
+        <div>
+          <button id='register-btn' >REGISTER</button>
+        </div>
+      </header>
+
+      <main>
+        <div id='all-books-container' >
+          {data?.map((element, index) =>
+          (
+            <div className='book-container' onClick={() => handleClick(element.previewLink)} key={index}>
+              <img className='book-image' src={element.imageLinks.smallThumbnail} alt="" />
+              <h3 className='title'>{element.title}</h3>
+              <h4 className='authors' >{element.authors[0]}</h4>
+            </div>
+          )
+          )}
+        </div>
+      </main>
+    </div>
   )
 }
 
