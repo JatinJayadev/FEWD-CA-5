@@ -29,9 +29,6 @@ function App() {
         console.log(error)
       })
 
-    const filteringData = () => {
-
-    }
   }, [])
   console.log(data)
 
