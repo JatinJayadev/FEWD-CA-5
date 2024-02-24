@@ -29,6 +29,9 @@ function App() {
         console.log(error)
       })
 
+    const filteringData = () => {
+
+    }
   }, [])
   console.log(data)
 
@@ -73,14 +76,14 @@ function App() {
             let title = element.title;
             let bookLink = element.previewLink;
             let author = element.authors[0];
-            let ratings = element.ratings;
+            let ratings = element.averageRating;
             return (
               <div className='book-container' onClick={() => handleClick(bookLink)} key={index}>
                 <img className='book-image' src={imageLink} alt="" />
                 <h3 className='title'>{title}</h3>
                 <h4 className='authors' >{author}</h4>
                 <div className='ratings' >
-                  <p>Ratings: {ratings ? { ratings } : "4"}
+                  <p>Ratings: {ratings ? ratings : "4"}
                     <span className='stars'>★</span></p>
                   <span className='free-tag' >Free</span>
                 </div>
