@@ -16,7 +16,7 @@ function Navbar({ inputValue, setInputValue }) {
             </div>
             <Link to='/Form'>
                 <div>
-                    <button id='register-btn'>REGISTER</button>
+                    <button id='register-btn'>Register</button>
                 </div>
             </Link>
         </header>

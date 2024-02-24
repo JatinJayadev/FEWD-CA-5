@@ -22,11 +22,26 @@ header {
   background-image: url(https://kalvium.community/images/livebooks_grid_tablet.svg);
 }
 
+a {
+  color: white;
+  text-decoration: none;
+}
+
+button {
+  font-family: "Poppins", sans-serif;
+  color: black;
+  cursor: pointer;
+}
+
 input {
   outline: none;
   border: 2px solid rgb(51, 51, 51);
   padding: 1vh;
   font-family: "Poppins", sans-serif;
+}
+
+input:focus {
+  border: 2px solid #6e5a8a;
 }
 
 #search-div {
@@ -51,6 +66,7 @@ input {
   justify-content: space-around;
   padding: 5vh;
   column-gap: 1vh;
+  margin: 0vh;
   row-gap: 3vh;
 }
 
@@ -63,6 +79,10 @@ input {
   background-color: white;
   cursor: pointer;
   box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.book-container:hover>h3 {
+  color: #783ec9;
 }
 
 .book-image {
@@ -148,15 +168,12 @@ span {
 }
 
 .confirm-signup {
-  background-color: white;
   margin-top: 3vh;
   font-size: 16px;
   font-weight: 600;
-  background-color: #47385c;
+  background-color: #6e5a8a;
   color: white;
 }
-
-
 
 .form>h1 {
   text-align: center;
@@ -167,75 +184,3 @@ span {
 .form>hr {
   margin-top: 1vh;
 }
-
-/* #all-books-container {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-}
-
-.book-container {
-  text-align: center;
-  overflow: hidden;
-  width: 80%;
-}
-
-.book-container>div {
-  width: 5vh;
-}
-
-img {
-  width: 100%;
-}
-
-#all-books-container>div {
-  margin: 3vh;
-  border: 1px solid #bfbfbf;
-  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  width: 20%;
-  margin: 5vh;
-  padding: 2vh 0.5vh;
-} */
-
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-} */
