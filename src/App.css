@@ -27,6 +27,11 @@ a {
   text-decoration: none;
 }
 
+p {
+  font-size: 12px;
+  font-weight: 600;
+}
+
 button {
   font-family: "Poppins", sans-serif;
   color: black;
@@ -43,6 +48,7 @@ input {
 input:focus {
   border: 2px solid #6e5a8a;
 }
+
 
 #search-div {
   width: 30%;
@@ -114,24 +120,10 @@ input:focus {
   margin-bottom: 5px;
 }
 
-p {
-  font-size: 12px;
-  font-weight: 600;
-}
-
 .free-tag {
   color: #47385c;
   font-weight: 700;
   margin: 0%;
-}
-
-.form-container {
-  border: 2px solid rgb(51, 51, 51);
-  width: 27%;
-  padding: 3vh;
-  margin: 10vh auto;
-  background-color: white;
-  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 form {
@@ -148,14 +140,23 @@ label {
   margin-top: 1vh;
 }
 
-#submit-btn {
-  padding: 1vh;
-}
-
 span {
   color: red;
   margin-top: 4px;
   font-size: 13px;
+}
+
+.form-container {
+  border: 2px solid rgb(51, 51, 51);
+  width: 27%;
+  padding: 3vh;
+  margin: 10vh auto;
+  background-color: white;
+  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#submit-btn {
+  padding: 1vh;
 }
 
 .submitted {
