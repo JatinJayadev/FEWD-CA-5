@@ -1,7 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 * {
   margin: 0%;
   padding: 0%;
   scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
 }
 
 header {
@@ -11,13 +17,16 @@ header {
   justify-content: space-between;
   padding: 4vh 8vh;
   border: 1px solid black;
+  background-color: #423653;
+  color: white;
+  background-image: url(https://kalvium.community/images/livebooks_grid_tablet.svg);
 }
 
 input {
   outline: none;
-  border: 1px solid black;
+  border: 2px solid rgb(51, 51, 51);
   padding: 1vh;
-
+  font-family: "Poppins", sans-serif;
 }
 
 #search-div {
@@ -41,40 +50,67 @@ input {
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 5vh;
-  border: 1px solid black;
   column-gap: 1vh;
   row-gap: 3vh;
 }
 
 .book-container {
-  width: 28vh;
+  width: 33vh;
   margin: 3vh;
   border: 1px solid #bfbfbf;
   text-align: center;
-  padding: 3vh;
+  padding: 2vh;
+  background-color: white;
+  cursor: pointer;
   box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .book-image {
-  width: 25vh;
-  height: 35vh;
+  width: 33vh;
+  height: 40vh;
 }
 
 .title {
-  width: 25vh;
-  margin: 1vh auto;
-  font-size: 15px;
+  margin: 0.5vh auto;
+  font-size: 14px;
+  text-align: left;
 }
 
 .authors {
   color: rgb(101, 100, 100);
+  font-size: 12px;
+  text-align: left;
+  margin-top: 5px;
+}
+
+.ratings {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.stars {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+p {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.free-tag {
+  color: #47385c;
+  font-weight: 700;
+  margin: 0%;
 }
 
 .form-container {
-  border: 1px solid black;
-  width: 25%;
-  padding: 2vh;
+  border: 2px solid rgb(51, 51, 51);
+  width: 27%;
+  padding: 3vh;
   margin: 10vh auto;
+  background-color: white;
   box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -83,9 +119,13 @@ form {
   flex-direction: column;
 }
 
+label {
+  font-weight: 500;
+}
+
 form>input,
 label {
-  margin-top: 2vh;
+  margin-top: 1vh;
 }
 
 #submit-btn {
@@ -95,11 +135,37 @@ label {
 span {
   color: red;
   margin-top: 4px;
+  font-size: 13px;
 }
 
 .submitted {
   color: white;
-  background-color: green;
+  background-color: #059f05;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+}
+
+.confirm-signup {
+  background-color: white;
+  margin-top: 3vh;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #47385c;
+  color: white;
+}
+
+
+
+.form>h1 {
+  text-align: center;
+  color: black;
+  font-size: 22px;
+}
+
+.form>hr {
+  margin-top: 1vh;
 }
 
 /* #all-books-container {

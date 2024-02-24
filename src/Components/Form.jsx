@@ -86,7 +86,7 @@ function Form() {
 
         // Validate password
         if (!password.trim()) {
-            passwordError = 'Password Required';
+            passwordError = 'Password is Required';
         } else if (password.length < 10) {
             passwordError = 'Password must be at least 10 characters long';
         } else if (!passwordRegex.test(password)) {
@@ -94,10 +94,11 @@ function Form() {
         }
 
         // Validate repeat password
-        if (passwordError) {
+        if (!repeatPassword.trim()) {
+            repPassError = 'Confirm Password is Required';
+        }
+        else if (repeatPassword !== password) {
             repPassError = 'Passwords do not match';
-        } else if (!repeatPassword.trim()) {
-            repPassError = 'Password is Required';
         }
 
         console.log(nameError, emailError, passwordError, repPassError)
@@ -116,6 +117,8 @@ function Form() {
         <div className="form-container" >
             <form action="" className="form" onSubmit={handleSubmit}
             >
+                <h1>Create Account</h1>
+                <hr />
                 {isSubmit ? (<input className="submitted" value={"Submitted Succesfully"} />) : ""}
                 <label>First Name:</label>
 
@@ -160,7 +163,7 @@ function Form() {
                 />
                 {repPassError ? (<span>{repPassError}</span>) : ""}
 
-                <input type="submit" value="Sign-Up" />
+                <input type="submit" className="confirm-signup" value="Sign-Up" />
             </form>
         </div>
     )
