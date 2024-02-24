@@ -6,8 +6,11 @@ function Form() {
     const [emailError, setEmailError] = useState()
     const [passwordError, setPassError] = useState()
     const [repPassError, setRepPassError] = useState()
+
+    //State to display Submission
     const [isSubmit, setIsSubmit] = useState(false)
 
+    //State for Storing Data
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -15,6 +18,8 @@ function Form() {
         repeatPassword: "",
     })
 
+
+    //Storing user input in state 
     const handleChange = (e) => {
         const inputName = e.target.name;
         const inputValue = e.target.value;
@@ -23,48 +28,21 @@ function Form() {
 
     console.log(formData)
 
+
+    //Validating on Submit 
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(formData)
-        const isValid = validate(formData)
-        setIsSubmit(isValid)
+        const isValid = validate(formData) //Validating if there are any errors
+        setIsSubmit(isValid) //If validate is success then it is Submitted
     }
 
-    // const validate = (values) => {
-    //     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-    //     const passwordRegex = /[!@#$%^&*(),.?":{}|<>]/;
-    //     const { name, email, password, repeatPassword } = values;
-
-    //     if (!name) {
-    //         setNameError("Username is required")
-    //     }
-
-    //     if (!email) {
-    //         setEmailError("Email is required")
-    //     } else if (!emailRegex.test(email)) {
-    //         setEmailError("Invalid Email Format")
-    //     }
-
-    //     if (!password) {
-    //         setpassError("Password Required")
-    //     } else if (password.length < 4 || password.length > 10) {
-    //         setpassError("Password must be less than 10 characters or greater than 4")
-    //     } else if (!passwordRegex.test(password)) {
-    //         setpassError("Password must contain one special character")
-    //     }
-
-    //     if (repeatPassword !== password) {
-    //         setRepPassError("Password do not match")
-    //     } else if (!repeatPassword) {
-    //         setRepPassError("Password is Required")
-    //     }
-    //     console.log(nameError, emailError, passwordError, repPassError)
-    // }
     const validate = (values) => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-        const passwordRegex = /[!@#$%^&*(),.?":{}|<>]/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;  //Regex for Valid Email
+        const passwordRegex = /[!@#$%^&*(),.?":{}|<>]/;       //Regex for password
         const { name, email, password, repeatPassword } = values;
 
+        //Declaring Input errors
         let nameError = '';
         let emailError = '';
         let passwordError = '';
@@ -103,12 +81,13 @@ function Form() {
 
         console.log(nameError, emailError, passwordError, repPassError)
 
-
+        //Pushing errors into states to displey in webpage
         setNameError(nameError);
         setEmailError(emailError);
         setPassError(passwordError);
         setRepPassError(repPassError);
 
+        //Returning if there are any errors in form back to handleSubmit
         return !(nameError || emailError || passwordError || repPassError);
     };
 
@@ -119,7 +98,8 @@ function Form() {
             >
                 <h1>Create Account</h1>
                 <hr />
-                {isSubmit ? (<input className="submitted" value={"Submitted Succesfully"} />) : ""}
+                {isSubmit ? (<input className="submitted" value={"Submitted Succesfully"} />) : ""} {/*Displaying Submission after validation becomes true*/}
+
                 <label>First Name:</label>
 
                 <input
@@ -129,7 +109,9 @@ function Form() {
                     value={formData.name}
                     onChange={handleChange}
                 />
-                {nameError ? (<span>{nameError}</span>) : ""}
+
+                {nameError ? (<span>{nameError}</span>) : ""} {/*Displaying Name Error*/}
+
                 <label>Email:</label>
 
                 <input
@@ -139,7 +121,8 @@ function Form() {
                     value={formData.email}
                     onChange={handleChange}
                 />
-                {emailError ? (<span>{emailError}</span>) : ""}
+
+                {emailError ? (<span>{emailError}</span>) : ""} {/*Displaying Email Error*/}
 
                 <label>Password:</label>
 
@@ -150,18 +133,18 @@ function Form() {
                     value={formData.password}
                     onChange={handleChange}
                 />
-                {passwordError ? (<span>{passwordError}</span>) : ""}
+                {passwordError ? (<span>{passwordError}</span>) : ""} {/*Displaying Password Error*/}
 
-                <label>Repeat Password:</label>
+                <label>Confirm Password:</label>
 
                 <input
                     type="password"
-                    placeholder="Confirm Password "
+                    placeholder="Repeat Password "
                     name="repeatPassword"
                     value={formData.repeatPassword}
                     onChange={handleChange}
                 />
-                {repPassError ? (<span>{repPassError}</span>) : ""}
+                {repPassError ? (<span>{repPassError}</span>) : ""} {/*Displaying repeat Password Error*/}
 
                 <input type="submit" className="confirm-signup" value="Sign-Up" />
             </form>
