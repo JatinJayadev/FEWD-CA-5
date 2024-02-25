@@ -9,7 +9,7 @@ function Navbar({ inputValue, setInputValue }) {
     return (
         <header>
             <Link to='/'> {/*Changing location to Books Page*/}
-                <div>
+                <div className="heading">
                     <h1>Kalvium Books </h1>
                 </div>
             </Link>
