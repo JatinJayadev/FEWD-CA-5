@@ -11,12 +11,16 @@ body {
 }
 
 header {
+  position: fixed;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1000;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   padding: 4vh 8vh;
-  border: 1px solid black;
+  border-bottom: 1px solid black;
   background-color: #423653;
   color: white;
   background-image: url(https://kalvium.community/images/livebooks_grid_tablet.svg);
@@ -79,6 +83,7 @@ input:focus {
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 5vh;
+  padding-top: 25vh;
   column-gap: 1vh;
   margin: 0vh;
   row-gap: 3vh;
@@ -228,7 +233,7 @@ span {
   }
 
   .heading>h1 {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .book-container {
