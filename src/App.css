@@ -210,7 +210,17 @@ span {
 
 @media screen and (max-width:480px) {
   header {
-    padding: 1vh 0.2vh;
+    padding: 3vh 0.8vh;
+  }
+
+  #search-box {
+    padding: 0.5vh 1vh;
+    font-size: 10px;
+  }
+
+  #register-btn {
+    padding: 0.5vh 1vh;
+    font-size: 10px;
   }
 
   h2 {
