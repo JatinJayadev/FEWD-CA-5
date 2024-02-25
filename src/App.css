@@ -207,3 +207,62 @@ span {
     width: 50%;
   }
 }
+
+@media screen and (max-width:480px) {
+  header {
+    padding: 1vh 0.2vh;
+  }
+
+  h2 {
+    font-size: 15px;
+  }
+
+  .heading>h1 {
+    font-size: 14px;
+  }
+
+  .book-container {
+    width: 25vh;
+    padding: 1.5vh;
+  }
+
+  .title {
+    font-size: 12px;
+  }
+
+  .authors,
+  p {
+    font-size: 10px;
+  }
+
+  .book-image {
+    width: 25vh;
+    height: 30vh;
+  }
+
+  .form-container {
+    width: 70%;
+    margin: 10vh auto;
+    padding: 2vh;
+  }
+
+  .form>h1 {
+    font-size: 18px;
+  }
+
+  .form>input {
+    padding: 0.8vh;
+  }
+
+  label {
+    font-size: 15px;
+  }
+
+  span {
+    font-size: 12px;
+  }
+
+  .confirm-signup {
+    font-size: 15px;
+  }
+}
