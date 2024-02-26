@@ -130,7 +130,7 @@ function Form() {
                     type="text"
                     placeholder="Enter Your Name"
                     name="name"
-                    value={formData.name}
+                    // value={formData.name}
                     onChange={handleChange}
                 />
 
@@ -142,7 +142,7 @@ function Form() {
                     type="text"
                     placeholder="Your Email"
                     name="email"
-                    value={formData.email}
+                    // value={formData.email}
                     onChange={handleChange}
                 />
 
@@ -154,7 +154,7 @@ function Form() {
                     type="password"
                     placeholder="Password"
                     name="password"
-                    value={formData.password}
+                    // value={formData.password}
                     onChange={handleChange}
                 />
                 {passwordError ? (<span>{passwordError}</span>) : ""} {/*Displaying Password Error*/}
@@ -165,7 +165,7 @@ function Form() {
                     type="password"
                     placeholder="Repeat Password "
                     name="repeatPassword"
-                    value={formData.repeatPassword}
+                    // value={formData.repeatPassword}
                     onChange={handleChange}
                 />
                 {repPassError ? (<span>{repPassError}</span>) : ""} {/*Displaying repeat Password Error*/}
