@@ -4,7 +4,7 @@ function Books(props) {
     const [data, setData] = useState([])
     const [filteredBooks, setFilteredBooks] = useState()
 
-
+    //Fetching Data from the API
     useEffect(() => {
         fetch("https://reactnd-books-api.udacity.com/books", { headers: { 'Authorization': 'whatever-you-want' } })
 
@@ -23,10 +23,12 @@ function Books(props) {
 
     }, [])
 
+    //Calling function as soon as input changed
     useEffect(() => {
         handleFilterData();
     }, [props.inputValue]);
 
+    //Filtering data 
     const handleFilterData = () => {
         const inputValue = props.inputValue; // Convert input value to lowercase for case-insensitive comparison
         const filteredData = data.filter((book) => {
@@ -35,8 +37,7 @@ function Books(props) {
         setFilteredBooks(filteredData);
     };
 
-    // console.log(props)
-
+    // Redirecting to the particular book link
     const handleClick = (previewLink) => {
         window.open(previewLink, "_blank");
     };

@@ -6,6 +6,7 @@ function Navbar({ inputValue, setInputValue }) {
     const handleSearch = (e) => {
         setInputValue(e.target.value.toLowerCase())
     }
+
     return (
         <header>
             <Link to='/'> {/*Changing location to Books Page*/}
