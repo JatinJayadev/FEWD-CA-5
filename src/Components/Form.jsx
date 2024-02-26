@@ -10,6 +10,7 @@ function Form() {
     //State to display Submission
     const [isSubmit, setIsSubmit] = useState(false)
 
+
     //State for Storing Data
     const [formData, setFormData] = useState({
         name: "",
@@ -18,6 +19,7 @@ function Form() {
         repeatPassword: "",
     })
 
+
     //Getting formData from localStorage with the help of useEffect
     useEffect(() => {
         const storedFormData = localStorage.getItem('registrationData');
@@ -25,6 +27,7 @@ function Form() {
             setFormData(JSON.parse(storedFormData));
         }
     }, []);
+
 
     //Storing data in localstorage if the form Validation becomes true
     useEffect(() => {
@@ -43,14 +46,12 @@ function Form() {
     }
 
 
-
     //Validating data on clicking Submit 
     const handleSubmit = (e) => {
         e.preventDefault()
         const isValid = validate(formData) //Validating if there are any errors
         setIsSubmit(isValid) //If validate is success then it is Submitted
     }
-
 
 
     //Validating Form
@@ -119,6 +120,7 @@ function Form() {
             >
                 <h1>Create Account</h1>
                 <hr />
+
                 {isSubmit ? (<div className="submitted"  > Submitted Succesfully </div>) : ""} {/*Displaying Submission after validation becomes true*/}
 
                 <label>First Name:</label>
@@ -154,6 +156,7 @@ function Form() {
                     value={formData.password}
                     onChange={handleChange}
                 />
+
                 {passwordError ? (<span>{passwordError}</span>) : ""} {/*Displaying Password Error*/}
 
                 <label>Confirm Password:</label>
@@ -165,9 +168,11 @@ function Form() {
                     value={formData.repeatPassword}
                     onChange={handleChange}
                 />
+
                 {repPassError ? (<span>{repPassError}</span>) : ""} {/*Displaying repeat Password Error*/}
 
                 <input type="submit" className="confirm-signup" value="Sign-Up" />
+
             </form>
         </div>
     )
