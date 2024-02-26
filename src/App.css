@@ -170,6 +170,8 @@ span {
 .submitted {
   color: white;
   background-color: #059f05;
+  padding: 1vh;
+  margin-top: 1vh;
   text-align: center;
   font-size: 15px;
   font-weight: 500;

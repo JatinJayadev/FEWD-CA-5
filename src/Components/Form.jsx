@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 function Form() {
 
@@ -26,16 +26,40 @@ function Form() {
         setFormData({ ...formData, [inputName]: inputValue })
     }
 
-    console.log(formData)
+
+    // console.log(formData)
+
+    useEffect(() => {
+        const storedFormData = localStorage.getItem('registrationData');
+        if (storedFormData) {
+            setFormData(JSON.parse(storedFormData));
+        }
+    }, []);
+
 
 
     //Validating on Submit 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(formData)
         const isValid = validate(formData) //Validating if there are any errors
         setIsSubmit(isValid) //If validate is success then it is Submitted
     }
+
+
+    useEffect(() => {
+        if (isSubmit) {
+            console.log(formData);
+            localStorage.setItem('registrationData', JSON.stringify(formData));
+            setFormData({
+                name: "",
+                email: "",
+                password: "",
+                repeatPassword: "",
+            });
+        }
+    }, [isSubmit]);
+
+
 
     const validate = (values) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;  //Regex for Valid Email
@@ -68,7 +92,7 @@ function Form() {
         } else if (password.length < 10) {
             passwordError = 'Password must be at least 10 characters long';
         } else if (!passwordRegex.test(password)) {
-            passwordError = 'Password must contain one special character';
+            passwordError = 'Password must contain atleast one special character !';
         }
 
         // Validate repeat password
@@ -76,10 +100,10 @@ function Form() {
             repPassError = 'Confirm Password is Required';
         }
         else if (repeatPassword !== password) {
-            repPassError = 'Passwords do not match';
+            repPassError = 'Passwords do not match !';
         }
 
-        console.log(nameError, emailError, passwordError, repPassError)
+        // console.log(nameError, emailError, passwordError, repPassError)
 
         //Pushing errors into states to displey in webpage
         setNameError(nameError);
@@ -94,11 +118,11 @@ function Form() {
 
     return (
         <div className="form-container" >
-            <form action="" className="form" onSubmit={handleSubmit}
+            <form className="form" onSubmit={handleSubmit}
             >
                 <h1>Create Account</h1>
                 <hr />
-                {isSubmit ? (<input className="submitted" value={"Submitted Succesfully"} />) : ""} {/*Displaying Submission after validation becomes true*/}
+                {isSubmit ? (<div className="submitted"  > Submitted Succesfully </div>) : ""} {/*Displaying Submission after validation becomes true*/}
 
                 <label>First Name:</label>
 
