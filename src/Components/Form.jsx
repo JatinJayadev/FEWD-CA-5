@@ -31,14 +31,8 @@ function Form() {
         if (isSubmit) {
             console.log(formData);
             localStorage.setItem('registrationData', JSON.stringify(formData));
-            // setFormData({
-            //     name: "",
-            //     email: "",
-            //     password: "",
-            //     repeatPassword: "",
-            // });
         }
-    }, [isSubmit]);
+    }, [isSubmit, formData]);
 
 
     //Storing user input in state 
