@@ -18,6 +18,28 @@ function Form() {
         repeatPassword: "",
     })
 
+    //Getting formData from localStorage with the help of useEffect
+    useEffect(() => {
+        const storedFormData = localStorage.getItem('registrationData');
+        if (storedFormData) {
+            setFormData(JSON.parse(storedFormData));
+        }
+    }, []);
+
+    //Storing data in localstorage if the form Validation becomes true
+    useEffect(() => {
+        if (isSubmit) {
+            console.log(formData);
+            localStorage.setItem('registrationData', JSON.stringify(formData));
+            // setFormData({
+            //     name: "",
+            //     email: "",
+            //     password: "",
+            //     repeatPassword: "",
+            // });
+        }
+    }, [isSubmit]);
+
 
     //Storing user input in state 
     const handleChange = (e) => {
@@ -27,18 +49,8 @@ function Form() {
     }
 
 
-    // console.log(formData)
 
-    useEffect(() => {
-        const storedFormData = localStorage.getItem('registrationData');
-        if (storedFormData) {
-            setFormData(JSON.parse(storedFormData));
-        }
-    }, []);
-
-
-
-    //Validating on Submit 
+    //Validating data on clicking Submit 
     const handleSubmit = (e) => {
         e.preventDefault()
         const isValid = validate(formData) //Validating if there are any errors
@@ -46,24 +58,15 @@ function Form() {
     }
 
 
-    useEffect(() => {
-        if (isSubmit) {
-            console.log(formData);
-            localStorage.setItem('registrationData', JSON.stringify(formData));
-            setFormData({
-                name: "",
-                email: "",
-                password: "",
-                repeatPassword: "",
-            });
-        }
-    }, [isSubmit]);
 
-
-
+    //Validating Form
     const validate = (values) => {
+
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;  //Regex for Valid Email
+
         const passwordRegex = /[!@#$%^&*(),.?":{}|<>]/;       //Regex for password
+
+        //Destructuring values
         const { name, email, password, repeatPassword } = values;
 
         //Declaring Input errors
@@ -130,7 +133,7 @@ function Form() {
                     type="text"
                     placeholder="Enter Your Name"
                     name="name"
-                    // value={formData.name}
+                    value={formData.name}
                     onChange={handleChange}
                 />
 
@@ -142,7 +145,7 @@ function Form() {
                     type="text"
                     placeholder="Your Email"
                     name="email"
-                    // value={formData.email}
+                    value={formData.email}
                     onChange={handleChange}
                 />
 
@@ -154,7 +157,7 @@ function Form() {
                     type="password"
                     placeholder="Password"
                     name="password"
-                    // value={formData.password}
+                    value={formData.password}
                     onChange={handleChange}
                 />
                 {passwordError ? (<span>{passwordError}</span>) : ""} {/*Displaying Password Error*/}
@@ -165,7 +168,7 @@ function Form() {
                     type="password"
                     placeholder="Repeat Password "
                     name="repeatPassword"
-                    // value={formData.repeatPassword}
+                    value={formData.repeatPassword}
                     onChange={handleChange}
                 />
                 {repPassError ? (<span>{repPassError}</span>) : ""} {/*Displaying repeat Password Error*/}
