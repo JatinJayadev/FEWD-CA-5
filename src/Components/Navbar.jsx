@@ -8,12 +8,11 @@ function Navbar({ inputValue, setInputValue }) {
         setInputValue(e.target.value.toLowerCase())
     }
 
-
     return (
         <header>
             <Link to='/'> {/*Changing location to Books Page*/}
                 <div className="heading">
-                    <h1>Kalvium Books </h1>
+                    <h1>Book Finder</h1>
                 </div>
             </Link>
 
